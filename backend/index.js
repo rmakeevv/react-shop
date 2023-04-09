@@ -13,9 +13,8 @@ app.use('/', router)
 app.use(express.static('public'))
 async function start() {
     await client.connect()
-        .then(() => console.log('db connected'))
+        .then(() => app.listen(5000) )
         .catch(e => console.log(e.message))
-    app.listen(5000)
 }
 
 start().then(() => console.log('server is running')).catch(e => console.log(e.message))
