@@ -1,28 +1,37 @@
 import userIcon from '../assets/images/UI/user-circle-icon-png.png'
 import {useDispatch, useSelector} from "react-redux";
-import {logOut} from "../authSlice";
-import {Link} from "react-router-dom";
+import {logIn, logOut} from "../authSlice";
+import {Link, useLoaderData} from "react-router-dom";
+import {Button} from "../components/Button";
+import {authUser} from "../basketSlice";
+export const loader = ({params}) => params
+
 export const Profile = () => {
     const auth = useSelector(state => state.auth.value)
     const dispatch = useDispatch()
+    const {number} = useLoaderData()
     const buttonRedirect = () => {
         dispatch(logOut())
     }
+    const authProfile = () => {
+        dispatch(logIn(number))
+        dispatch(authUser(number))
+    }
 
     return auth.isLogged ? (
-            <div className={'grid p-4 justify-center bg-blue-200'}>
-                <div className={'grid grid-cols-2 p-8 bg-slate-900 rounded-md gap-4'}>
-                    <img src={userIcon} width={'156px'} className={'rounded-md m-2'} alt={'user-ico'}/>
-                    <div className={'text-white grid p-2'}>
-                        <h1 className={'text-3xl'}>Your id: {auth.userId || 0}</h1>
-                        Phone number: {auth.userId || 0}
-                    </div>
-                    <button className={'rounded-md bg-blue-500 text-white px-8 py-2'} type={'submit'} onClick={buttonRedirect}>Quit</button>
+            <div className={'p-4 justify-center bg-blue-200 text-white'}>
+                <div className={'flex p-8 bg-slate-900 rounded-md items-center justify-between'}>
+                    <img src={userIcon} width={'86px'} className={'rounded-md m-2'} alt={'user-ico'}/>
+                    <h1>Мой профиль</h1>
+                    <Link to={`/orders/${auth.userId}`} className={'p-4 text-black bg-sky-200'}>Просмотреть мои заказы</Link>
+                    <Button type={'submit'} action={buttonRedirect} text={'Сменить пользователя'}/>
                 </div>
             </div>
     ) : (
-        <div className={'grid items-center justify-center text-white p-4'}>
-            <Link to={'/'} className={'p-4 bg-blue-700 rounded-md px-8'}>To main</Link>
+        <div className={'text-white p-4 bg-sky-200 flex items-center justify-around'}>
+            <h1 className={'text-xl text-black px-2 py-4'}>Номер подтвержден!</h1>
+            <button onClick={authProfile} className={'bg-blue-500 px-8 py-2 rounded-md'}>Войти!</button>
+            <Link to={'/auth'} className={'px-6 py-3 rounded-md hover:underline bg-slate-900 '}>Войти в другой аккаунт</Link>
         </div>
     )
 };

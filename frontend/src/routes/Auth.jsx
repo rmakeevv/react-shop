@@ -1,22 +1,31 @@
 import {Form, useActionData} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {logIn} from "../authSlice";
+import {useSelector} from "react-redux";
+import {MyLink} from "../components/MyLink";
 
 export const Auth = () => {
     const auth = useSelector(state => state.auth.value)
-    const dispatch = useDispatch()
-    const data = useActionData()
-
-    return (
-        <div className={'flex justify-center'}>
-            <Form className={'grid gap-4 justify-items-center'} method={'post'}>
-                <label className={'text-white'}>
+    const errors = useActionData()
+    return auth.isLogged ?
+        (
+            <div className={'grid text-white justify-items-center gap-4'}>
+                <h1 className={'md:text-3xl p-4'}>Awesome!</h1>
+                <span className={'text-2xl'}>You're logged in!</span>
+                <MyLink href={'/products'} text={'go to store'}/>
+            </div>
+        )
+    : (
+        <div className={'grid gap-4 justify-items-center items-center bg-sky-200 py-4'}>
+            <h1 className={'md:text-xl p-4'}>
+                Введите номер телефона чтобы войти в профиль
+            </h1>
+            <Form className={'p-4 rounded-md bg-slate-900'} method={"post"}>
+                <label className={'text-white mx-3'}>
                     Phone number
-                    <input type={'text'} className={'m-2 text-slate-900 p-2'} name={'number'} required={true}/>
+                    <input type={'text'} className={'m-4 text-slate-900 p-3 rounded-md'} name={'number'} required={true}/>
                 </label>
-                <button type={'submit'} className={'px-8 py-2 bg-blue-500 text-white'} onClick={() => dispatch(logIn(13123))}>GO</button>
+                <button type={'submit'} className={'bg-blue-500 text-white px-6 py-3 rounded-md'}>Войти</button>
             </Form>
-            <span>{auth.userId}</span>
+            <span>{errors}</span>
         </div>
     );
 };

@@ -9,7 +9,8 @@ const cors = require('cors')
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json())
 app.use(cors())
-app.use('/products', router)
+app.use('/', router)
+app.use(express.static('public'))
 async function start() {
     await client.connect()
         .then(() => console.log('db connected'))

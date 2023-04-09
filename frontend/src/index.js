@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import {Root} from "./routes/Root";
 import {Error} from "./Error";
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
-import { Products} from "./routes/Products";
+import {Products} from "./routes/Products";
 import {getProducts} from "./api/getProducts";
 import './assets/styles/index.css';
 import {Main} from "./routes/Main";
@@ -11,9 +11,12 @@ import {Product} from "./routes/Product";
 import {getOneProduct} from "./api/getOneProduct";
 import {Auth} from "./routes/Auth";
 import {userCreate} from "./api/userCreate";
-import {Profile} from "./routes/Profile";
+import {Profile, loader} from "./routes/Profile";
 import {Provider} from "react-redux";
 import store from "./store";
+import {Basket} from "./routes/Basket";
+import {Orders, loader as orderLoader} from "./routes/Orders";
+import {Checkout} from "./routes/Checkout";
 
 const router = createBrowserRouter([
     {
@@ -41,8 +44,22 @@ const router = createBrowserRouter([
                 action: userCreate
             },
             {
-                path: '/profile',
-                element: <Profile/>
+                path: '/profile/:number',
+                element: <Profile/>,
+                loader: loader
+            },
+            {
+                path: '/basket',
+                element: <Basket/>
+            },
+            {
+                path: '/orders/:userid',
+                element: <Orders/>,
+                loader: orderLoader
+            },
+            {
+                path: '/checkout',
+                element: <Checkout/>
             }
         ]
     },
