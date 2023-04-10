@@ -5,6 +5,7 @@ const client = require('./db')
 const bodyParser = require('body-parser')
 const router = require('./routes/router')
 const cors = require('cors')
+require('dotenv').config()
 
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json())
@@ -14,8 +15,8 @@ app.use(express.static('public'))
 async function start() {
     await client.connect()
         .then(() => console.log('db connected'))
-        .catch(e => console.log(e.message))
-    app.listen(5000)
+        .catch(e => console.dir(e))
+    app.listen(process.env.PORT)
 }
 
 start().then(() => console.log('server is running')).catch(e => console.log(e.message))
