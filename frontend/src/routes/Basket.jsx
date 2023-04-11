@@ -28,7 +28,7 @@ export const Basket = () => {
                         <div className={'p-4'}>
                             {
                                 basket.items.map((item,key) => {
-                                    const image = `http://51.250.65.58:5000/images/${item.img}`
+                                    const image = `http://localhost:5000/images/${item.img}`
                                     return (
                                         <div key={key} className={'p-4 text-white flex justify-center'}>
                                             <img width={'340px'} src={image} alt={'product'}/>

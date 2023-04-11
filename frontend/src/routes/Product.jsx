@@ -5,7 +5,7 @@ export const Product = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const data = useLoaderData()
-    const picture = `http://51.250.65.58:5000/images/${ 'asus-pc.png' && data.img }`
+    const picture = `http://localhost:5000/images/${ 'asus-pc.png' && data.img }`
     return data
         ? (
             <div className={'bg-gradient-to-r from-cyan-400 to-blue-700 text-slate-200 flex p-8 items-stretch justify-center'}>
