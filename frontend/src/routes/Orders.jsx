@@ -1,5 +1,5 @@
 import {Link, useLoaderData} from "react-router-dom";
-import {getImage} from "../services/getImage";
+import {OrderItem} from "../components/OrderItem";
 export const loader = async ({params}) => {
     const {userid} = params
     const data = await fetch(`http://localhost:5000/orders/${userid}`)
@@ -22,23 +22,7 @@ export const Orders = () => {
                                     <h1 className={'m-4'}> Номер заказа: {_id}</h1>
                                     <hr/>
                                     {
-                                        items.map((item, key) => {
-                                            const image = getImage(item.img)
-                                            return (
-                                                <div key={key} className={'flex justify-between items-center p-4'}>
-                                                    <div className={'flex items-center gap-4'}>
-                                                        <Link to={`/products/${item._id}`} className={'bg-slate-900 p-6 rounded-md'}>
-                                                            Подробнее
-                                                        </Link>
-                                                        <h1>{item.name}</h1>
-                                                        <span>{item.brand}</span>
-                                                        <br/>
-                                                        <span>{item.price}</span>
-                                                    </div>
-                                                    <img src={image} width={'200px'} alt={'product'}/>
-                                                </div>
-                                            )
-                                        })
+                                        items.map((item, key) => <OrderItem key={key} {...item}/>)
                                     }
                                 </div>
                             )

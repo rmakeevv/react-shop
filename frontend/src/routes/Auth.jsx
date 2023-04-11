@@ -1,6 +1,7 @@
-import {Form, useActionData} from "react-router-dom";
+import {useActionData} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {MyLink} from "../components/MyLink";
+import {AuthForm} from "../components/AuthForm";
 
 export const Auth = () => {
     const auth = useSelector(state => state.auth.value)
@@ -18,13 +19,7 @@ export const Auth = () => {
             <h1 className={'md:text-xl p-4'}>
                 Введите номер телефона чтобы войти в профиль
             </h1>
-            <Form className={'p-4 rounded-md bg-slate-900'} method={"post"}>
-                <label className={'text-white mx-3'}>
-                    Phone number
-                    <input type={'text'} className={'m-4 text-slate-900 p-3 rounded-md'} name={'number'} required={true}/>
-                </label>
-                <button type={'submit'} className={'bg-blue-500 text-white px-6 py-3 rounded-md'}>Войти</button>
-            </Form>
+            <AuthForm/>
             <span>{errors}</span>
         </div>
     );
