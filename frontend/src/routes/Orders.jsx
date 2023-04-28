@@ -2,7 +2,7 @@ import {Link, useLoaderData} from "react-router-dom";
 import {getImage} from "../services/getImage";
 export const loader = async ({params}) => {
     const {userid} = params
-    const data = await fetch(`http://51.250.65.58:5000/orders/${userid}`)
+    const data = await fetch(`http://localhost:5000/orders/${userid}`)
         .then(res => res.json())
         .then(data => data)
         .catch((err) => console.log(err.message))

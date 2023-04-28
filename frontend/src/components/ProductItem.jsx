@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import {Button} from "./Button";
 export const ProductItem = ({name, brand, price, _id, action, img}) => {
-    const picture = `http://51.250.65.58:5000/images/${img}`
+    const picture = `http://localhost:5000/images/${img}`
     return (
         <div className={'md:flex bg-slate-900 p-8 md:rounded-md items-center'}>
             <Link to={`/products/${_id}`}>

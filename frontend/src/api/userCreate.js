@@ -7,7 +7,7 @@ export const userCreate = async ({request}) => {
         return 'Неправильно набран номер!'
     }
     const userData = {phone : number}
-    const data = await fetch(`http://51.250.65.58:5000/users`, {
+    const data = await fetch(`http://localhost:5000/users`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'

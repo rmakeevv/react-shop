@@ -27,7 +27,7 @@ export const Checkout = () => {
                     <h1 className={'text-white text-center'}>Ваш заказ</h1>
                     {
                         basket.items.map((item,key) => {
-                            const image = `http://51.250.65.58:5000/images/${item.img}`
+                            const image = `http://localhost:5000/images/${item.img}`
                             return (
                                 <div className={'flex'} key={key}>
                                     <div key={key} className={'p-4 text-white flex justify-center'}>
