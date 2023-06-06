@@ -16,7 +16,13 @@ export const Product = () => {
                             <h1 className={'text-xl'}>{data.name}</h1>
                             <button className={'ml-10 px-6 py-2 rounded-md bg-blue-700'} onClick={() => navigate(-1)}>Назад</button>
                         </div>
-                        <p className={'md:text-lg'}>Невероятный товар мы можете его приобрести на нашем сайте!</p>
+                        <p className={'py-2'}>Хранилище: {data.storage || 'Не указано'}</p>
+                        <p className={'py-2'}>Цвет: {data.color || 'Не указано'}</p>
+                        <p className={'py-2'}>Дисплей: {data.display || 'Не указано'}</p>
+                        <p className={'py-2'}>Камера: {data.camera || 'Не указано'}</p>
+                        <p className={'py-2'}>Разрешение экрана: {data.resolution || 'Не указано'}</p>
+                        <p className={'py-2'}>Производитель: {data.brand || 'Не указано'}</p>
+                        <p className={'py-2'}>Категория: {data.category || 'Не указано'}</p>
                         <div className={'flex items-center'}>
                             <span className={'pr-4'}> {data.price + ' руб.'} </span>
                             <button className='bg-blue-700 px-8 py-3 rounded-md m-2' onClick={() => dispatch(addItem(data))}>Купить</button>
