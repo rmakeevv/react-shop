@@ -1,7 +1,7 @@
 const client = require("../db");
 const {ObjectId} = require("mongodb");
 const db = client.db("online-store");
-const myColl = db.collection("products");
+const myColl = db.collection("vproducts");
 async function addProduct(req, res) {
     try {
         const data = await req.body

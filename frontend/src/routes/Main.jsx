@@ -1,12 +1,14 @@
-import pc from '../assets/images/products/laptops/img.png'
+import phone from '../assets/images/products/phones/img_3.png'
 import {Link} from "react-router-dom";
 export const Main = () => {
     return (
-        <div className={'bg-gradient-to-r from-cyan-400 to-blue-700 text-white p-8'}>
-            <div className={'flex bg-slate-900 py-8 px-8 rounded-md items-center container mx-auto justify-around'}>
-                <img src={pc} alt={'pc'} width={'320px'} className={'p-2'}/>
-                <h1 className={'md:text-xl text-slate-200 text-center '}>Добро пожаловать в наш магазин!</h1>
-                <Link to={'products'} className={'bg-blue-700 px-8 py-4 rounded-md md:text-xl hover:underline'}>Перейти в каталог</Link>
+        <div className={'text-white'} style={{background: '#F5F5F5'}}>
+            <div className={'flex rounded-md container mx-auto items-center'}>
+                <img src={phone} alt={'pc'} width={'600px'}/>
+                <div className={'flex flex-col items-center'}>
+                    <h1 className={'md:text-3xl text-slate-900 text-center p-4'}>Добро пожаловать в наш магазин!</h1>
+                    <Link to={'products'} className={'bg-gray-900 px-12 py-4 rounded-md md:text-xl hover:underline'}>Перейти в каталог</Link>
+                </div>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 const client = require("../db");
 const db = client.db("online-store");
-const myColl = db.collection("products");
+const myColl = db.collection("vproducts");
 async function getCategory(req, res) {
     try {
         const {category, order} = await req.params
