@@ -13,16 +13,16 @@ export const Header = () => {
         }
       >
         <div className={'flex items-center h-full px-8'}>
-          <h1 className={'m-2 md:text-2xl'}>PLUGGED.IN</h1>
+          <h1 className={'mr-2 md:text-xl'}>PLUGGED.IN</h1>
           <Link to={'/'}>
-            <img src={logo} alt={'logo'} className={'w-10'} />
+            <img src={logo} alt={'logo'} className={'w-8'} />
           </Link>
         </div>
-        <ul className={'flex md:text-xl'}>
-          <li className={'md:py-6 md:px-8 p-4'}>
+        <ul className={'flex items-center'}>
+          <li className={' p-4'}>
             <Link to={'/'}>Главная</Link>
           </li>
-          <li className={'md:py-6 md:px-8 p-4'}>
+          <li className={'p-4'}>
             <Link to={'products'}>Товары</Link>
           </li>
         </ul>
@@ -31,7 +31,7 @@ export const Header = () => {
             <Link
               to={'/basket'}
               className={
-                'md:px-8 md:bg-blue-500 rounded-md py-3 flex hover:bg-sky-100 hover:text-black'
+                'md:bg-blue-500 rounded-md px-4 py-2 flex hover:bg-sky-100 hover:text-black'
               }
             >
               <span className={'px-2'}>Корзина</span>

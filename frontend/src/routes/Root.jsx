@@ -6,7 +6,7 @@ export const Root = () => {
     <div className={'font-sans h-screen'}>
       <Header />
       <div
-        className={`mt-20 md:mt-16 pt-5 h-full bg-slate-900 ${navigation.state === 'loading' ? 'opacity-50' : ''}`}
+        className={`mt-10  pt-5 h-full bg-slate-900 ${navigation.state === 'loading' ? 'opacity-50' : ''}`}
       >
         <Outlet />
       </div>
