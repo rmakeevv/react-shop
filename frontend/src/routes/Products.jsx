@@ -9,8 +9,8 @@ export const Products = () => {
   return (
     <div className={'bg-gradient-to-r from-cyan-400 to-blue-700 md:p-6'}>
       <div className={'flex flex-col container mx-auto md:px-8'}>
-        <div className={'p-8 bg-slate-900 md:rounded-md md:flex items-center'}>
-          <h1 className={'md:text-xl text-white'}>
+        <div className={'px-12 py-4 bg-slate-900 md:rounded-md md:flex items-center justify-between'}>
+          <h1 className={'text-white'}>
             {data ? 'В наличии ' + data.length + ' товар(ов)' : 'error'}
           </h1>
           <SortForm />

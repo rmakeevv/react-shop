@@ -5,10 +5,10 @@ export const SortForm = () => {
   return (
     <Form
       method={'get'}
-      className={'text-white align-center flex md:gap-6 p-4'}
+      className={'text-white align-center flex items-center'}
     >
       <div>
-        <span className={'md:text-xl mr-2'}>Категории</span>
+        <span className={'mr-2'}>Категории</span>
         <select
           name={'first'}
           className={'text-sky-200 bg-inherit focus:border-0'}
@@ -33,7 +33,7 @@ export const SortForm = () => {
         </select>
       </div>
       <div>
-        <span className={'md:text-xl m-2'}>По цене</span>
+        <span className={'m-2'}>По цене</span>
         <select
           name={'order'}
           className={'text-slate-900 rounded-sm px-2'}
