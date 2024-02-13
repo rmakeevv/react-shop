@@ -27,7 +27,7 @@ export const Profile = () => {
       >
         <img
           src={userIcon}
-          width={'86px'}
+          width={'46px'}
           className={'rounded-md m-2'}
           alt={'user-ico'}
         />

@@ -5,14 +5,14 @@ export const ProductItem = ({ name, brand, price, _id, action, img }) => {
   const picture = useMemo(() => `http://localhost:5000/images/${img}`, [img]);
 
   return (
-    <div className={'flex bg-slate-900 p-2 md:rounded-md items-center gap-2 '}>
-      <Link to={`/products/${_id}`}>
-        <img src={picture} alt={name} width={'200px'} />
+    <div className={'flex bg-slate-900 md:rounded-md items-center gap-2 '}>
+      <Link to={`/products/${_id}`} className='p-6'>
+        <img src={picture} alt={name} width={'180px'} />
       </Link>
       <div className={'flex flex-col gap-4'}>
         <div className={'flex items-center'}>
           <Link to={`/products/${_id}`}>{brand + ' ' + name} </Link>
-          <Link to={`/products/${_id}`} className={'p-4'}>
+          <Link to={`/products/${_id}`} className={'px-6'}>
             Подробнее
           </Link>
         </div>

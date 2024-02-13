@@ -14,31 +14,31 @@ export const Orders = () => {
     <div className={'bg-sky-300 p-8'}>
       <div
         className={
-          'grid gap-4 mx-auto container bg-slate-900 text-white rounded-md p-8'
+          'grid gap-4 mx-auto container bg-slate-900 text-white rounded-md p-4'
         }
       >
-        <h1 className={'text-center m-4'}>Ваши заказы</h1>
+        <h1 className={'text-center m-2'}>Ваши заказы</h1>
         {data.map(({ items, _id }, key) => {
           return (
             <div
               className={
-                'bg-slate-700 text-white p-4 rounded-md flex flex-col gap-4'
+                'bg-slate-800 text-white p-2 rounded-md flex flex-col gap-2'
               }
               key={key}
             >
-              <h1 className={'m-4'}> Номер заказа: {_id}</h1>
+              <h1 className={'m-2'}> Номер заказа: {_id}</h1>
               <hr />
               {items.map((item, key) => {
                 const image = getImage(item.img);
                 return (
                   <div
                     key={key}
-                    className={'flex justify-between items-center p-4'}
+                    className={'flex justify-between items-center p-2'}
                   >
                     <div className={'flex items-center gap-4'}>
                       <Link
                         to={`/products/${item._id}`}
-                        className={'bg-slate-900 p-6 rounded-md'}
+                        className={'bg-slate-900 p-2 px-4 rounded-md'}
                       >
                         Подробнее
                       </Link>
@@ -47,7 +47,7 @@ export const Orders = () => {
                       <br />
                       <span>{item.price}</span>
                     </div>
-                    <img src={image} width={'200px'} alt={'product'} />
+                    <img src={image} width={'180px'} alt={'product'} />
                   </div>
                 );
               })}
