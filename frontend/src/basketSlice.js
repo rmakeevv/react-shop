@@ -35,7 +35,7 @@ export const basketSlice = createSlice({
     },
     authUser: (state, action) => {
       state.value = {
-        items: [],
+        items: [...state.value.items],
         userId: action.payload,
       };
     },
