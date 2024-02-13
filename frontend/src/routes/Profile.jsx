@@ -18,7 +18,7 @@ export const Profile = () => {
     dispatch(authUser(number));
   };
 
-  return auth.isLogged ? (
+  if (auth.isLogged) return (
     <div className={'p-4 justify-center bg-blue-200 text-white'}>
       <div
         className={
@@ -45,7 +45,8 @@ export const Profile = () => {
         />
       </div>
     </div>
-  ) : (
+  ) 
+  return (
     <div
       className={'text-white p-4 bg-sky-200 flex items-center justify-around'}
     >

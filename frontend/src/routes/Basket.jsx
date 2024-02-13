@@ -25,7 +25,9 @@ export const Basket = () => {
           }
         >
           <div
-            className={'p-4 grid gap-4 items-center bg-slate-700 rounded-md'}
+            className={
+              'p-4 grid gap-4  bg-slate-700 rounded-md w-64 justify-items-start'
+            }
           >
             Сумма заказа: {total}
             <br />
@@ -33,7 +35,7 @@ export const Basket = () => {
             {auth.isLogged ? (
               <Link
                 to={'/checkout'}
-                className={'bg-sky-200 text-black px-6 py-3 rounded-md'}
+                className={'bg-sky-200 text-black px-4 py-2 rounded-md text-sm'}
               >
                 Перейти к оформлению
               </Link>
@@ -47,13 +49,13 @@ export const Basket = () => {
               return (
                 <div key={key} className={'p-4 text-white flex justify-center'}>
                   <img width={'340px'} src={image} alt={'product'} />
-                  <div className={'flex flex-col items-start justify-center'}>
-                    <div className={'flex flex-col'}>
-                      <Link to={`/products/${item._id}`}>
-                        {item.brand + ' ' + item.name}
-                      </Link>
-                      <span>{item.price}</span>
-                    </div>
+                  <div
+                    className={'flex flex-col items-start justify-center gap-4'}
+                  >
+                    <Link to={`/products/${item._id}`}>
+                      {item.brand + ' ' + item.name}
+                    </Link>
+                    <span>{item.price}</span>
                     <Button
                       text={'Удалить'}
                       action={() => dispatch(removeItem(item.basketItemId))}
