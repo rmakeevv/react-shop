@@ -26,7 +26,7 @@ export const Basket = () => {
         >
           <div
             className={
-              'p-4 grid gap-4  bg-slate-700 rounded-md w-64 justify-items-start'
+              'p-4 grid gap-4  bg-slate-700 rounded-md  justify-items-start'
             }
           >
             Сумма заказа: {total}
@@ -43,14 +43,14 @@ export const Basket = () => {
               <Link to={'/auth'}>Войти в профиль</Link>
             )}
           </div>
-          <div className={'p-4'}>
+          <div>
             {basket.items.map((item, key) => {
               const image = `http://localhost:5000/images/${item.img}`;
               return (
-                <div key={key} className={'p-4 text-white flex justify-center'}>
-                  <img width={'340px'} src={image} alt={'product'} />
+                <div key={key} className={'p-2 text-white flex justify-center'}>
+                  <img width={'180px'} src={image} alt={'product'} />
                   <div
-                    className={'flex flex-col items-start justify-center gap-4'}
+                    className={'flex flex-col items-start justify-center gap-3'}
                   >
                     <Link to={`/products/${item._id}`}>
                       {item.brand + ' ' + item.name}

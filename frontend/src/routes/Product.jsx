@@ -9,18 +9,18 @@ export const Product = () => {
   return data ? (
     <div
       className={
-        'bg-gradient-to-r from-cyan-400 to-blue-700 text-slate-200 flex p-8 items-stretch justify-center'
+        'bg-gradient-to-r from-cyan-400 to-blue-700 text-slate-200 flex p-4 items-stretch justify-center'
       }
     >
-      <div className="md:flex items-start bg-slate-900 p-8 rounded-md justify-around container">
-        <img src={picture} alt={'product'} width={'440px'} />
+      <div className="md:flex items-start bg-slate-900 p-2 rounded-md justify-around container">
+        <img src={picture} alt={'product'} width={'400px'} />
         <div
           className={
             'grid items-center bg-slate-900 px-6 rounded-md justify-items-start'
           }
         >
-          <div className={'flex items-center py-6'}>
-            <h1 className={'text-xl'}>{data.name}</h1>
+          <div className={'flex items-center py-3'}>
+            <h1 className={'text-lg'}>{data.name}</h1>
             <button
               className={'ml-10 px-6 py-2 rounded-md bg-blue-700'}
               onClick={() => navigate(-1)}
@@ -40,7 +40,7 @@ export const Product = () => {
           <div className={'flex items-center'}>
             <span className={'pr-4'}> {data.price + ' руб.'} </span>
             <button
-              className="bg-blue-700 px-8 py-3 rounded-md m-2"
+              className="bg-blue-700 px-6 py-2 rounded-md m-2"
               onClick={() => dispatch(addItem(data))}
             >
               Купить
