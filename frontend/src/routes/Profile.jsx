@@ -1,9 +1,9 @@
 import userIcon from '../assets/images/UI/user-circle-icon-png.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { logIn, logOut } from '../authSlice';
+import { logIn, logOut } from '../features/authSlice';
 import { Link, useLoaderData } from 'react-router-dom';
 import { Button } from '../components/Button';
-import { authUser } from '../basketSlice';
+import { authUser } from '../features/basketSlice';
 export const loader = ({ params }) => params;
 
 export const Profile = () => {
@@ -18,34 +18,35 @@ export const Profile = () => {
     dispatch(authUser(number));
   };
 
-  if (auth.isLogged) return (
-    <div className={'p-4 justify-center bg-blue-200 text-white'}>
-      <div
-        className={
-          'flex p-8 bg-slate-900 rounded-md items-center justify-between'
-        }
-      >
-        <img
-          src={userIcon}
-          width={'46px'}
-          className={'rounded-md m-2'}
-          alt={'user-ico'}
-        />
-        <h1>Мой профиль</h1>
-        <Link
-          to={`/orders/${auth.userId}`}
-          className={'p-4 text-black bg-sky-200'}
+  if (auth.isLogged)
+    return (
+      <div className={'p-4 justify-center bg-blue-200 text-white'}>
+        <div
+          className={
+            'flex p-8 bg-slate-900 rounded-md items-center justify-between'
+          }
         >
-          Просмотреть мои заказы
-        </Link>
-        <Button
-          type={'submit'}
-          action={buttonRedirect}
-          text={'Сменить пользователя'}
-        />
+          <img
+            src={userIcon}
+            width={'46px'}
+            className={'rounded-md m-2'}
+            alt={'user-ico'}
+          />
+          <h1>Мой профиль</h1>
+          <Link
+            to={`/orders/${auth.userId}`}
+            className={'p-4 text-black bg-sky-200'}
+          >
+            Просмотреть мои заказы
+          </Link>
+          <Button
+            type={'submit'}
+            action={buttonRedirect}
+            text={'Сменить пользователя'}
+          />
+        </div>
       </div>
-    </div>
-  ) 
+    );
   return (
     <div
       className={'text-white p-4 bg-sky-200 flex items-center justify-around'}

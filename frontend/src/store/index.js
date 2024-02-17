@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import authReducer from './authSlice';
-import basketReducer from './basketSlice';
+import authReducer from '../features/authSlice';
+import basketReducer from '../features/basketSlice';
 
 export default configureStore({
   reducer: {

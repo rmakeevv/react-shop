@@ -1,15 +1,12 @@
 import { Link } from 'react-router-dom';
 import logo from '../assets/images/logo/logo.png';
-import { useSelector } from 'react-redux';
 
-export const Header = () => {
-  const auth = useSelector((state) => state.auth.value);
-  const basket = useSelector((state) => state.basket.value);
+export const Header = ({ basket, auth }) => {
   return (
     <nav className={'bg-slate-900 text-white fixed w-full top-0'}>
       <div
         className={
-          'container md:flex items-center md:justify-between mx-auto grid px-12'
+          'container md:flex items-center md:justify-between mx-auto grid px-12 py-2'
         }
       >
         <div className={'flex items-center h-full px-8'}>
@@ -18,14 +15,7 @@ export const Header = () => {
             <img src={logo} alt={'logo'} className={'w-8'} />
           </Link>
         </div>
-        <ul className={'flex items-center'}>
-          <li className={' p-4'}>
-            <Link to={'/'}>Главная</Link>
-          </li>
-          <li className={'p-4'}>
-            <Link to={'products'}>Товары</Link>
-          </li>
-        </ul>
+
         <div className={'flex items-center'}>
           <div className={'flex md:p-0 p-1 items-center'}>
             <Link
@@ -46,7 +36,7 @@ export const Header = () => {
             ) : (
               <Link
                 to={'/auth'}
-                className={'md:bg-blue-500 md:px-8 py-3 rounded-md mx-2'}
+                className={'md:bg-blue-500 md:px-8 py-2 rounded-md mx-2'}
               >
                 Войти
               </Link>

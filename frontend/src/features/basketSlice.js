@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState = {
+  value: {
+    items: [],
+    userId: null,
+  },
+};
+
 export const basketSlice = createSlice({
   name: 'basket',
-  initialState: {
-    value: {
-      items: [],
-      userId: null,
-    },
-  },
+  initialState,
   reducers: {
     addItem: (state, action) => {
       state.value = {

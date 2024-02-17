@@ -1,4 +1,5 @@
 import { redirect } from 'react-router-dom';
+import {instance} from './index';
 export const userCreate = async ({ request }) => {
   const formData = await request.formData();
   const { number } = Object.fromEntries(formData);
@@ -7,17 +8,9 @@ export const userCreate = async ({ request }) => {
     return 'Неправильно набран номер!';
   }
   const userData = { phone: number };
-  const data = await fetch(`http://localhost:5000/users`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json;charset=utf-8',
-    },
-    body: JSON.stringify(userData),
-  })
-    .then((res) => res.json())
-    .then((data) => data)
+  const data = await instance.post(`/users`,userData)
+    .then((res) => res.data)
     .catch((err) => console.log(err.message));
-  console.log(data);
   return data
     ? redirect(`/profile/${data.insertedId || data._id}`)
     : redirect('/auth');

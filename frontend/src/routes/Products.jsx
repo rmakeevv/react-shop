@@ -2,14 +2,18 @@ import { useLoaderData } from 'react-router-dom';
 import { ProductItem } from '../components/ProductItem';
 import { SortForm } from '../components/SortForm';
 import { useDispatch } from 'react-redux';
-import { addItem } from '../basketSlice';
+import { addItem } from '../features/basketSlice';
 export const Products = () => {
   const dispatch = useDispatch();
   const data = useLoaderData();
   return (
     <div className={'bg-gradient-to-r from-cyan-400 to-blue-700 md:p-6'}>
       <div className={'flex flex-col container mx-auto md:px-8'}>
-        <div className={'px-12 py-4 bg-slate-900 md:rounded-md md:flex items-center justify-between'}>
+        <div
+          className={
+            'px-12 py-4 bg-slate-900 md:rounded-md md:flex items-center justify-between'
+          }
+        >
           <h1 className={'text-white'}>
             {data ? 'В наличии ' + data.length + ' товар(ов)' : 'error'}
           </h1>

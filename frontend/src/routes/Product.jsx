@@ -1,6 +1,6 @@
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addItem } from '../basketSlice';
+import { addItem } from '../features/basketSlice';
 export const Product = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../components/Button';
-import { removeItem } from '../basketSlice';
+import { removeItem } from '../features/basketSlice';
 import { MyLink } from '../components/MyLink';
 import { Link } from 'react-router-dom';
 export const Basket = () => {

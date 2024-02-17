@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { createOrderApi } from '../api/createOrderApi';
-import { checkOut } from '../basketSlice';
+import { checkOut } from '../features/basketSlice';
 
 export const Checkout = () => {
   const dispatch = useDispatch();
